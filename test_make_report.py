@@ -3,14 +3,14 @@ MAIN_PAGE_LINK = "http://selenium1py.pythonanywhere.com/"
 
 
 def test_registration(browser):
-    MAIN_PAGE = MainPage(browser, MAIN_PAGE_LINK)
-    MAIN_PAGE.open_page()
+    main_page = MainPage(browser, MAIN_PAGE_LINK)
+    main_page.open_page()
 
-    REG_PAGE = MAIN_PAGE.go_to_login_page()
-    SUCCESS_PAGE = REG_PAGE.enter_data_and_login()
+    reg_page = main_page.go_to_login_page()
+    success_page = reg_page.enter_data_and_login()
 
-    SUCCESS_MESSAGE = SUCCESS_PAGE.chek_success_message_after_reg()
-    assert SUCCESS_MESSAGE is not None, "Assert on Registration not pas"
+    success_message = success_page.chek_success_message_after_reg()
+    assert success_message is not None, "Assert on Registration not pas"
 
 
 

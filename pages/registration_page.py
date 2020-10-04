@@ -4,27 +4,27 @@ import time
 
 
 class RegistrationPageLocators:
-    EMAIL_REGISTRATON = "#id_registration-email"
-    PASS1_REGISTRATION = "#id_registration-password1"
-    PASS2_REGSTRATION = "#id_registration-password2"
-    SEND_REGISTRATION_FORM = "[value='Register']"
+    email_registration = "#id_registration-email"
+    pass1_registration = "#id_registration-password1"
+    pass2_registration = "#id_registration-password2"
+    send_registration_form = "[value='Register']"
     alert_success = "alertinner"
 
 
 class RegistrationPageData:
-    EMAIL = str(time.time()) + "@fakemail.org"
-    PASS = "Fake1Pass233"
+    email = str(time.time()) + "@fakemail.org"
+    password = "Fake1pass233"
 
 
 class RegistrationPage(BasePage):
 
     def enter_data_and_login(self):
-        self.find(RegistrationPageLocators.EMAIL_REGISTRATON).\
-            send_keys(RegistrationPageData.EMAIL)
-        self.find(RegistrationPageLocators.PASS1_REGISTRATION).\
-            send_keys(RegistrationPageData.PASS)
-        self.find(RegistrationPageLocators.PASS2_REGSTRATION).\
-            send_keys(RegistrationPageData.PASS)
-        self.find(RegistrationPageLocators.SEND_REGISTRATION_FORM).click()
+        self.find(RegistrationPageLocators.email_registration).\
+            send_keys(RegistrationPageData.email)
+        self.find(RegistrationPageLocators.pass1_registration).\
+            send_keys(RegistrationPageData.password)
+        self.find(RegistrationPageLocators.pass2_registration).\
+            send_keys(RegistrationPageData.password)
+        self.find(RegistrationPageLocators.send_registration_form).click()
 
         return SuccessRegPage(browser=self.browser, url=self.browser.current_url)

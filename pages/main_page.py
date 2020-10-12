@@ -1,6 +1,6 @@
 from pages.base_page import BasePage
 from pages.registration_page import RegistrationPage
-#from .authorization_page import AuthorizationPage
+from .authorization_page import AuthorizationPage
 from pages.all_goods_page import AllGoodsPage
 import time
 
@@ -47,6 +47,11 @@ class MainPage(BasePage):
         #Act
         self.find(MainPageLocators.login_link).click()
         return RegistrationPage(self.browser, self.browser.current_url)
+    
+    def go_to_auth_page(self):
+        #Act
+        self.find(MainPageLocators.login_link).click()
+        return AuthorizationPage(self.browser, self.browser.current_url)
 
     def go_to_oscar_link(self):
         #Act

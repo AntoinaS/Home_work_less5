@@ -1,5 +1,4 @@
 from pages.base_page import BasePage
-from pages.main_page import MainPage
 
 class AuthorizationPageLocators:
     auth_email = "#id_login-username"
@@ -16,5 +15,3 @@ class AuthorizationPage(BasePage):
         self.find(AuthorizationPageLocators.auth_email).send_keys(AuthorizationData.email)
         self.find(AuthorizationPageLocators.auth_pass).send_keys(AuthorizationData.password)
         self.find(AuthorizationPageLocators.send_auth_form).click() 
-
-        return MainPage(self.browser,self.browser.current_url)

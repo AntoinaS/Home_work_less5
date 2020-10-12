@@ -21,7 +21,7 @@ class RegistrationPageData:
 class RegistrationPage(BasePage):
 
     def enter_data_and_login(self):
-        #Act
+        # Act
         self.find(RegistrationPageLocators.email_registration).\
             send_keys(RegistrationPageData.email)
         self.find(RegistrationPageLocators.pass1_registration).\
@@ -33,11 +33,11 @@ class RegistrationPage(BasePage):
         return SuccessRegPage(self.browser, self.browser.current_url)
 
     def check_reg_form(self):
-        #Assert
+        # Assert
         assert self.find(
             RegistrationPageLocators.registration_form) != None, "Registration form not found"
 
     def check_auth_form(self):
-        #Assert
+        # Assert
         assert self.find(
             RegistrationPageLocators.authorization_form) != None, "Authorization form not found"
